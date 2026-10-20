@@ -1,0 +1,70 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-shrink: 0;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: var(--gold-light);
+  background: linear-gradient(145deg, #26231d, var(--espresso));
+  box-shadow: inset 0 0 0 1px rgba(184, 151, 95, 0.45);
+  transition:
+    transform var(--t-med),
+    box-shadow var(--t-med);
+}
+
+.mark svg {
+  width: 26px;
+  height: 26px;
+}
+
+.logo:hover .mark {
+  transform: rotate(-6deg) scale(1.06);
+  box-shadow:
+    inset 0 0 0 1px var(--gold),
+    0 8px 20px rgba(184, 151, 95, 0.3);
+}
+
+.word {
+  display: grid;
+  line-height: 1;
+}
+
+.word strong {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.28rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.word small {
+  margin-top: 4px;
+  font-size: 0.6rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.light .word strong {
+  color: var(--paper);
+}
+
+/* hide wordmark text on very small screens */
+
+@media (max-width: 359px) {
+  .word small {
+    display: none;
+  }
+}

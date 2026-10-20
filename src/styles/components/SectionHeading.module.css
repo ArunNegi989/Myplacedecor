@@ -1,0 +1,89 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: clamp(28px, 4vw, 56px);
+}
+
+@media (min-width: 768px) {
+  .wrap {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+.copy {
+  max-width: 620px;
+  display: grid;
+  gap: 1rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.eyebrow i {
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+  display: inline-block;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  font-size: clamp(1.95rem, 5.2vw, 3.5rem);
+}
+
+.title em {
+  font-style: italic;
+  color: var(--sage);
+}
+
+.text {
+  color: var(--ink-soft);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  max-width: 52ch;
+}
+
+.action {
+  flex-shrink: 0;
+}
+
+.center {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.center .copy {
+  justify-items: center;
+}
+
+.light .eyebrow {
+  color: var(--gold-light);
+}
+
+.light .title {
+  color: var(--paper);
+}
+
+.light .title em {
+  color: var(--gold-light);
+}
+
+.light .text {
+  color: rgba(255, 255, 255, 0.78);
+}

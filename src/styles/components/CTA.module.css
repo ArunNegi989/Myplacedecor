@@ -1,0 +1,129 @@
+.section {
+  padding-bottom: clamp(64px, 9vw, 128px);
+  background: var(--cream);
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--r-lg);
+  color: var(--paper);
+  text-align: center;
+  background: var(--espresso);
+}
+
+@media (min-width: 768px) {
+  .banner {
+    border-radius: var(--r-xl);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .banner:hover .bg {
+    transform: scale(1.06);
+  }
+}
+
+.bg {
+  object-fit: cover;
+  z-index: -3;
+  transition: transform 2s var(--ease);
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(180deg, rgba(20, 18, 14, 0.7), rgba(20, 18, 14, 0.88));
+}
+
+.orb {
+  position: absolute;
+  z-index: -1;
+  top: -140px;
+  left: 50%;
+  width: min(620px, 120vw);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(143, 163, 135, 0.35), transparent 65%);
+  animation: breathe 7s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% {
+    transform: translateX(-50%) scale(1.15);
+    opacity: 0.7;
+  }
+}
+
+.body {
+  display: grid;
+  justify-items: center;
+  gap: clamp(14px, 2vw, 22px);
+  padding: clamp(48px, 9vw, 120px) clamp(18px, 5vw, 48px);
+}
+
+.body h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  font-size: clamp(2rem, 6vw, 3.8rem);
+}
+
+.body h2 em {
+  font-style: italic;
+  color: var(--sage);
+}
+
+.body h2 {
+  max-width: 18ch;
+}
+
+.body h2 em {
+  color: var(--gold-light);
+}
+
+.body p {
+  max-width: 52ch;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+}
+
+.kicker {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sage);
+  color: var(--gold-light);
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 0.6rem;
+  width: 100%;
+}
+
+.btns > * {
+  max-width: 100%;
+}
+
+/* full-width stacked buttons on small phones */
+
+@media (max-width: 479px) {
+  .btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btns > * {
+    width: 100%;
+    white-space: normal;
+  }
+}

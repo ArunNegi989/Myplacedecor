@@ -1,0 +1,221 @@
+.section {
+  padding-block: clamp(64px, 9vw, 128px);
+  background: var(--cream);
+  overflow: clip;
+}
+
+.arrows {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.arrows button {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  transition:
+    background var(--t-fast),
+    color var(--t-fast),
+    transform var(--t-fast),
+    opacity var(--t-fast);
+}
+
+.arrows button:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .arrows button:hover {
+    background: var(--sage);
+    color: var(--paper);
+    transform: scale(1.08);
+  }
+}
+
+.arrows button:disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.track {
+  display: flex;
+  gap: clamp(12px, 2vw, 24px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-inline: max(var(--pad-x), calc((100vw - var(--container)) / 2 + var(--pad-x)));
+  scroll-padding-inline: max(var(--pad-x), calc((100vw - var(--container)) / 2 + var(--pad-x)));
+  padding-block: 8px 24px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  flex: 0 0 clamp(260px, 78vw, 400px);
+  scroll-snap-align: start;
+}
+
+.reveal {
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--r-lg);
+  color: var(--paper);
+  background: var(--sand);
+  isolation: isolate;
+  transition:
+    transform var(--t-med),
+    box-shadow var(--t-med);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card:hover .img {
+    transform: scale(1.1);
+  }
+
+  .card:hover .overlay {
+    opacity: 1;
+  }
+
+  .card:hover .cat {
+    opacity: 1;
+    transform: none;
+  }
+
+  .card:hover .link svg {
+    transform: translateX(5px);
+  }
+
+  .card:hover .link span::after {
+    transform: scaleX(1);
+  }
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.85;
+  background: linear-gradient(to top, rgba(20, 18, 14, 0.85) 0%, rgba(20, 18, 14, 0.15) 50%, transparent 70%);
+  transition: opacity var(--t-med);
+}
+
+.index {
+  position: absolute;
+  z-index: 2;
+  top: 18px;
+  left: 20px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.cat {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  right: 16px;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--r-pill);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    opacity var(--t-med),
+    transform var(--t-med);
+}
+
+/* always visible on touch devices */
+
+@media (hover: hover) and (pointer: fine) {
+  .cat {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.info {
+  position: absolute;
+  z-index: 2;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  display: grid;
+  gap: 0.7rem;
+  justify-items: start;
+}
+
+.info h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  line-height: 1.2;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 36px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--paper);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.link span {
+  position: relative;
+}
+
+.link span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0.35);
+  transform-origin: left;
+  transition: transform var(--t-med);
+}
+
+.link svg {
+  transition: transform var(--t-med);
+}
+
+.foot {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(8px, 2vw, 20px);
+}
