@@ -10,9 +10,22 @@ import WhatsAppButton from "@/components/common/WhatsAppButton";
 import RouteScrollReset from "@/components/common/RouteScrollReset";
 
 export const metadata: Metadata = {
-  title: "MyPlaceDecore | Premium Interior Design & Home Decor",
+  title: "MyplaceDecor | Premium Interior Design & Turnkey Interiors in Gurugram",
   description:
-    "MyPlaceDecore transforms homes and workspaces with elegant interior design, stylish home decor, and thoughtfully designed spaces tailored to your lifestyle.",
+    "MyplaceDecor crafts beautiful, functional and timeless homes and workspaces in Gurugram — from concept to handover.",
+  openGraph: {
+    title: "MyplaceDecor | Premium Interior Design & Turnkey Interiors in Gurugram",
+    description:
+      "MyplaceDecor crafts beautiful, functional and timeless homes and workspaces in Gurugram — from concept to handover.",
+    siteName: "MyplaceDecor",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "MyplaceDecor | Premium Interior Design & Turnkey Interiors in Gurugram",
+    description:
+      "MyplaceDecor crafts beautiful, functional and timeless homes and workspaces in Gurugram — from concept to handover.",
+  },
 };
 
 export const viewport: Viewport = {
