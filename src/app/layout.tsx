@@ -10,9 +10,9 @@ import WhatsAppButton from "@/components/common/WhatsAppButton";
 import RouteScrollReset from "@/components/common/RouteScrollReset";
 
 export const metadata: Metadata = {
-  title: "Acumen Interiors | Premium Interior Design & Turnkey Interiors in Gurugram",
+  title: "MyPlaceDecore | Premium Interior Design & Home Decor",
   description:
-    "Acumen Interiors crafts beautiful, functional and timeless homes and workspaces in Gurugram — from concept to handover.",
+    "MyPlaceDecore transforms homes and workspaces with elegant interior design, stylish home decor, and thoughtfully designed spaces tailored to your lifestyle.",
 };
 
 export const viewport: Viewport = {

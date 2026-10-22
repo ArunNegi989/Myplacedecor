@@ -3,7 +3,7 @@ import { IMG, img } from "./images";
 export const SITE = {
   name: "Acumen Interiors",
   phone: "+91 96272 64525",
-  phoneHref: "tel:+918222022202",
+  phoneHref: "tel:+919627264525",
   address: "Opposite AIPL Lake City, Gurugram, India",
   hours: "Open 24/7",
   rating: "4.9",
