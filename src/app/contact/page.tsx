@@ -9,9 +9,9 @@ import { PROCESS_STEPS } from "@/data/content";
 import s from "@/styles/components/Contact.module.css";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Acumen Interiors",
+  title: "Contact Us | MyplaceDecor",
   description:
-    "Plan your home or workspace with Acumen Interiors, Gurugram. Call, WhatsApp or send a project enquiry for a free design consultation.",
+    "Plan your home or workspace with MyplaceDecor, Gurugram. Call, WhatsApp or send a project enquiry for a free design consultation.",
 };
 
 export default function ContactPage() {

@@ -104,7 +104,7 @@ export default function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7, ease: EASE }}
             >
-              At Acumen Interiors, we create beautiful, functional and timeless spaces tailored to your style and
+              At MyplaceDecor, we create beautiful, functional and timeless spaces tailored to your style and
               needs.
             </motion.p>
 

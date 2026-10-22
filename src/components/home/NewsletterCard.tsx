@@ -25,7 +25,7 @@ export default function NewsletterCard() {
       <SafeImage src={NEWSLETTER_BG} alt="" fill sizes="(min-width: 992px) 36vw, 92vw" className={s.bg} />
       <div className={s.scrim} />
       <div className={s.newsBody}>
-        <span className={s.kicker}>The Acumen Journal</span>
+        <span className={s.kicker}>The MyplaceDecor Journal</span>
         <h3>
           Stay inspired with design <em>ideas &amp; updates.</em>
         </h3>

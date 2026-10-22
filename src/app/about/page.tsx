@@ -103,7 +103,7 @@ export default function AboutUs() {
       <section className={`${styles.container} ${styles.hero}`}>
         <div className={styles.heroText}>
           <span className={styles.eyebrow}>
-            <i className={styles.dot} /> About Acumen Interiors
+            <i className={styles.dot} /> About MyplaceDecor
           </span>
           <h1 className={styles.heroTitle}>
             Our story, <br />
@@ -125,7 +125,7 @@ export default function AboutUs() {
         </div>
 
         <div className={styles.heroMedia}>
-          <img src={IMG.hero} alt="Living room by Acumen Interiors" className={styles.heroArch} />
+          <img src={IMG.hero} alt="Living room by MyplaceDecor" className={styles.heroArch} />
           <img src={IMG.heroSmall} alt="Modular kitchen" className={styles.heroSmall} />
           <div className={styles.heroBadge}>
             <strong>15+</strong>
@@ -166,7 +166,7 @@ export default function AboutUs() {
             </div>
 
             <h2 className={styles.founderName}>Prince Hooda</h2>
-            <p className={styles.founderRole}>Founder &amp; CEO, Acumen Interiors</p>
+            <p className={styles.founderRole}>Founder &amp; CEO, MyplaceDecor</p>
 
             <blockquote className={styles.pullQuote}>
               <Quote size={34} className={styles.quoteIcon} />
@@ -175,7 +175,7 @@ export default function AboutUs() {
             </blockquote>
 
             <p className={styles.para}>
-              Prince Hooda leads the vision behind Acumen Interiors with a simple belief: great
+              Prince Hooda leads the vision behind MyplaceDecor with a simple belief: great
               design is not about trends, it&apos;s about people.
             </p>
             <p className={styles.para}>
@@ -218,7 +218,7 @@ export default function AboutUs() {
           </span>
           <h2 className={styles.title}>Design that speaks for the people who live in it.</h2>
           <p className={styles.para}>
-            Acumen Interiors designs and builds residential and commercial interiors across
+            MyplaceDecor designs and builds residential and commercial interiors across
             full-home projects, single rooms, and bespoke furniture. We work end-to-end, from
             the first measured drawing through to final styling and handover.
           </p>

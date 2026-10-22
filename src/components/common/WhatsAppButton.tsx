@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       className={s.fab}
-      aria-label="Chat with Acumen Interiors on WhatsApp"
+      aria-label="Chat with MyplaceDecor on WhatsApp"
     >
       <span className={s.ring} aria-hidden />
       <span className={s.icon} aria-hidden>

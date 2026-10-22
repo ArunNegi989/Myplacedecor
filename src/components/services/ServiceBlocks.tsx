@@ -24,7 +24,7 @@ export default function ServiceBlocks() {
                     <div className={s.frame}>
                       <SafeImage
                         src={sv.image}
-                        alt={`${sv.title} by Acumen Interiors`}
+                        alt={`${sv.title} by MyplaceDecor`}
                         fill
                         sizes="(min-width: 992px) 46vw, 92vw"
                       />

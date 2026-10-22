@@ -1,7 +1,7 @@
 import { IMG, img } from "./images";
 
 export const SITE = {
-  name: "Acumen Interiors",
+  name: "MyplaceDecor",
   phone: "+91 96272 64525",
   phoneHref: "tel:+919627264525",
   address: "Opposite AIPL Lake City, Gurugram, India",
@@ -136,28 +136,28 @@ export const SERVICES = [
 export const REVIEWS = [
   {
     name: "Satyjeet Singh",
-    text: "The team at Acumen Interiors is very professional and creative. They designed our home in a way that feels elegant but still comfortable for everyday life. The storage planning especially was very thoughtful.",
+    text: "The team at MyplaceDecor is very professional and creative. They designed our home in a way that feels elegant but still comfortable for everyday life. The storage planning especially was very thoughtful.",
   },
   {
     name: "Krishan Rana",
-    text: "Choosing Acumen Interiors was one of the best decisions for our interior project. Their experienced team delivered exceptional quality, modern designs, and timely completion. Truly a trustworthy and professional interior design company.",
+    text: "Choosing MyplaceDecor was one of the best decisions for our interior project. Their experienced team delivered exceptional quality, modern designs, and timely completion. Truly a trustworthy and professional interior design company.",
     featured: true,
   },
   {
     name: "Bharti Tyagi",
-    text: "Very happy with the work done by Acumen Interiors. They helped us design our 3BHK and made the whole process surprisingly stress-free. The house feels much more spacious and organized now.",
+    text: "Very happy with the work done by MyplaceDecor. They helped us design our 3BHK and made the whole process surprisingly stress-free. The house feels much more spacious and organized now.",
   },
   {
     name: "Jigyasa Mishra",
-    text: "We worked with Acumen Interiors for our home interiors and it turned out beautifully. The team had great design ideas but were also practical about budgets and timelines. Everything was delivered on time.",
+    text: "We worked with MyplaceDecor for our home interiors and it turned out beautifully. The team had great design ideas but were also practical about budgets and timelines. Everything was delivered on time.",
   },
   {
     name: "Deeksha Agarwal",
-    text: "Really impressed with the work by Acumen Interiors. They handled everything from layout planning to materials and finishing. The house now feels brighter, more spacious, and much more functional.",
+    text: "Really impressed with the work by MyplaceDecor. They handled everything from layout planning to materials and finishing. The house now feels brighter, more spacious, and much more functional.",
   },
   {
     name: "Ankit Vaishnav",
-    text: "Great experience working with Acumen Interiors they understood our style quickly and suggested a design that felt modern but not overdone. The entire process from planning to execution was smooth.",
+    text: "Great experience working with MyplaceDecor they understood our style quickly and suggested a design that felt modern but not overdone. The entire process from planning to execution was smooth.",
   },
 ];
 

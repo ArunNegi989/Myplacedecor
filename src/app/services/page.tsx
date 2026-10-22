@@ -4,9 +4,9 @@ import ServiceBlocks from "@/components/services/ServiceBlocks";
 import CTASection from "@/components/home/CTASection";
 
 export const metadata: Metadata = {
-  title: "Services | Acumen Interiors",
+  title: "Services | MyplaceDecor",
   description:
-    "Residential and commercial interior design, turnkey execution and custom furniture by Acumen Interiors in Gurugram.",
+    "Residential and commercial interior design, turnkey execution and custom furniture by MyplaceDecor in Gurugram.",
 };
 
 export default function ServicesPage() {

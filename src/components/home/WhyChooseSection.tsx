@@ -20,7 +20,7 @@ export default function WhyChooseSection() {
                 <div>
                   <span className={s.kicker}>Our promise</span>
                   <h2 id="why-title">
-                    Why choose <em>Acumen Interiors?</em>
+                    Why choose <em>MyplaceDecor?</em>
                   </h2>
                   <p>Let&apos;s create a space you&apos;ll love to live in.</p>
                 </div>

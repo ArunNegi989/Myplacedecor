@@ -68,7 +68,7 @@ export default function SocialIcons({ className }: { className?: string }) {
     <ul className={className ?? s.social}>
       {SOCIAL_LINKS.map(({ name, label, href }) => (
         <li key={name}>
-          <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`Acumen Interiors on ${label}`}>
+          <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`MyplaceDecor on ${label}`}>
             {SOCIAL_ICONS[name]}
           </a>
         </li>

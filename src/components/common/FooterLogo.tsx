@@ -12,7 +12,7 @@ const FOOTER_LOGO = {
   src: "/assets/images/logo.png",
   width: 660,
   height: 509,
-  alt: "Acumen Interiors",
+  alt: "MyplaceDecor",
   plate: true,
 };
 
@@ -21,7 +21,7 @@ export default function FooterLogo() {
     <Link
       href="/"
       className={[s.logo, FOOTER_LOGO.plate ? s.logoPlate : ""].join(" ")}
-      aria-label="Acumen Interiors – home"
+      aria-label="MyplaceDecor – home"
     >
       <Image
         src={FOOTER_LOGO.src}

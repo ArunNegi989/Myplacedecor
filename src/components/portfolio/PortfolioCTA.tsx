@@ -47,7 +47,7 @@ export default function PortfolioCTA() {
                   Contact Us
                 </Button>
                 <Button
-                  href={whatsappLink("Hi Acumen Interiors, I saw your portfolio and have a project in mind.")}
+                  href={whatsappLink("Hi MyplaceDecor, I saw your portfolio and have a project in mind.")}
                   variant="glass"
                   size="lg"
                   arrow={false}

@@ -17,7 +17,7 @@ export default function AboutSection() {
         <div className={s.grid}>
           <div className={s.copy}>
             <SectionHeading
-              eyebrow="About Acumen Interiors"
+              eyebrow="About MyplaceDecor"
               title={
                 <span id="about-title">
                   We design spaces that <em>speak for you.</em>
@@ -55,7 +55,7 @@ export default function AboutSection() {
           {/* staggered collage */}
           <div className={s.collage}>
             <RevealAnimation variant="image" className={[s.tile, s.t1].join(" ")}>
-              <SafeImage src={ABOUT_IMAGES[0]} alt="Sage and cream living room by Acumen Interiors" fill sizes="(min-width: 992px) 30vw, 60vw" />
+              <SafeImage src={ABOUT_IMAGES[0]} alt="Sage and cream living room by MyplaceDecor" fill sizes="(min-width: 992px) 30vw, 60vw" />
             </RevealAnimation>
             <RevealAnimation variant="image" delay={0.12} className={[s.tile, s.t2].join(" ")}>
               <SafeImage src={ABOUT_IMAGES[1]} alt="Warm modern interior detail" fill sizes="(min-width: 992px) 20vw, 40vw" />

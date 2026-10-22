@@ -11,12 +11,12 @@ const HEADER_LOGO = {
   src: "/assets/images/headerlogo.png",
   width: 660,
   height: 509,
-  alt: "Acumen Interiors",
+  alt: "MyplaceDecor",
 };
 
 export default function HeaderLogo() {
   return (
-    <Link href="/" className={s.logo} aria-label="Acumen Interiors – home">
+    <Link href="/" className={s.logo} aria-label="MyplaceDecor – home">
       <Image
         src={HEADER_LOGO.src}
         alt={HEADER_LOGO.alt}
