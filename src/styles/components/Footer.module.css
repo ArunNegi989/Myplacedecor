@@ -213,8 +213,9 @@
 .toTop {
   position: fixed;
   z-index: 90;
-  right: max(16px, env(safe-area-inset-right));
-  bottom: max(16px, env(safe-area-inset-bottom));
+  /* centred above the floating WhatsApp button (54px) */
+  right: calc(max(16px, env(safe-area-inset-right)) + 3px);
+  bottom: calc(max(16px, env(safe-area-inset-bottom)) + 66px);
   width: 48px;
   height: 48px;
   display: grid;

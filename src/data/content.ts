@@ -8,17 +8,32 @@ export const SITE = {
   hours: "Open 24/7",
   rating: "4.9",
   reviewCount: 545,
+  /** WhatsApp destination for all enquiries: country code + number, no "+" or spaces. */
+  whatsapp: "918476898395",
+  whatsappDisplay: "+91 84768 98395",
+  /** TODO: add the studio email. The email row stays hidden on /contact while this is empty. */
+  email: "",
+  /** What Google Maps searches for on /contact (embed + "Get Directions"). */
+  mapQuery: "Acumen Interiors, Opposite AIPL Lake City, Gurugram, India",
   // Replace with your real links
   googleReviews: "https://www.google.com/maps",
   youtube: "https://www.youtube.com",
+  /**
+   * TODO: paste your real profile URLs. Empty entries are hidden everywhere
+   * (footer + contact page) so no icon points at an unrelated page.
+   */
   social: {
-    instagram: "https://www.instagram.com",
-    facebook: "https://www.facebook.com",
-    pinterest: "https://www.pinterest.com",
-    linkedin: "https://www.linkedin.com",
-    youtube: "https://www.youtube.com",
+    instagram: "",
+    facebook: "",
+    pinterest: "",
+    linkedin: "",
+    youtube: "",
   },
 };
+
+/** Click-to-chat link for the configured WhatsApp number, with optional prefilled text. */
+export const whatsappLink = (text?: string) =>
+  `https://wa.me/${SITE.whatsapp}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
 
 /** Header nav — one real page per item (static export, each page = its own HTML file). */
 export const NAV = [

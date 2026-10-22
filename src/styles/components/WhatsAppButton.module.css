@@ -1,0 +1,92 @@
+.fab {
+  position: fixed;
+  z-index: 95;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  height: 54px;
+  min-width: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--r-pill);
+  color: var(--paper);
+  background: linear-gradient(135deg, #2bb673 0%, #128c4f 100%);
+  box-shadow: 0 14px 34px rgba(18, 140, 79, 0.38);
+  animation: fabIn 0.8s var(--ease) 1s both;
+  transition:
+    transform var(--t-fast),
+    box-shadow var(--t-fast);
+}
+
+.fab:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+}
+
+.icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* label slides out on hover (desktop only) */
+.label {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.88rem;
+  font-weight: 500;
+  opacity: 0;
+  transition:
+    max-width var(--t-med),
+    opacity var(--t-fast),
+    padding var(--t-med);
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid rgba(43, 182, 115, 0.55);
+  animation: ping 2.8s var(--ease) 2s infinite;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fab:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(18, 140, 79, 0.48);
+  }
+
+  .fab:hover .label {
+    max-width: 140px;
+    opacity: 1;
+    padding-right: 1.2rem;
+  }
+}
+
+@keyframes fabIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.8);
+  }
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  70%,
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}

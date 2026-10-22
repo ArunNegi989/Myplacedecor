@@ -1,26 +1,20 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/common/PageHero";
-import TempSection from "@/components/common/TempSection";
+import PortfolioHero from "@/components/portfolio/PortfolioHero";
+import PortfolioGallery from "@/components/portfolio/PortfolioGallery";
+import PortfolioCTA from "@/components/portfolio/PortfolioCTA";
 
 export const metadata: Metadata = {
   title: "Portfolio | Acumen Interiors",
-  description: "Explore completed homes and workspaces by Acumen Interiors.",
+  description:
+    "Explore living rooms, kitchens, bathrooms, bedrooms, wardrobes, commercial spaces and custom furniture designed by Acumen Interiors, Gurugram.",
 };
 
 export default function PortfolioPage() {
   return (
     <>
-      <PageHero
-        crumb="Portfolio"
-        eyebrow="Our work"
-        title={
-          <>
-            Spaces we&apos;ve <em>brought to life.</em>
-          </>
-        }
-        text="Temporary intro text — completed projects will be showcased here."
-      />
-      <TempSection heading="Portfolio — coming soon" />
+      <PortfolioHero />
+      <PortfolioGallery />
+      <PortfolioCTA />
     </>
   );
 }

@@ -6,6 +6,8 @@ import "./globals.css";
 import EnquiryProvider from "@/components/common/EnquiryProvider";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
+import RouteScrollReset from "@/components/common/RouteScrollReset";
 
 export const metadata: Metadata = {
   title: "Acumen Interiors | Premium Interior Design & Turnkey Interiors in Gurugram",
@@ -21,12 +23,16 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en">
+    // data-scroll-behavior: lets Next disable the global smooth scrolling during
+    // route changes (Next 16 no longer does this by default), so in-page anchors stay smooth
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
         <EnquiryProvider>
           <Header />
           <main>{children}</main>
+          <RouteScrollReset />
           <Footer />
+          <WhatsAppButton />
         </EnquiryProvider>
       </body>
     </html>
