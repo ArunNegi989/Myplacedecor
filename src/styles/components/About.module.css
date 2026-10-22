@@ -141,14 +141,9 @@
 
 .t1 {
   grid-row: 1 / 4;
-  border-radius: 999px 999px var(--r-md) var(--r-md);
+  
 }
 
-@media (min-width: 768px) {
-  .t1 {
-    border-radius: 999px 999px var(--r-lg) var(--r-lg);
-  }
-}
 
 .t2 {
   grid-row: 1 / 2;

@@ -2,14 +2,14 @@ import { IMG, img } from "./images";
 
 export const SITE = {
   name: "Acumen Interiors",
-  phone: "+91 82220 22202",
+  phone: "+91 96272 64525",
   phoneHref: "tel:+918222022202",
   address: "Opposite AIPL Lake City, Gurugram, India",
   hours: "Open 24/7",
   rating: "4.9",
   reviewCount: 545,
   /** WhatsApp destination for all enquiries: country code + number, no "+" or spaces. */
-  whatsapp: "918476898395",
+  whatsapp: "919627264525",
   whatsappDisplay: "+91 84768 98395",
   /** TODO: add the studio email. The email row stays hidden on /contact while this is empty. */
   email: "",

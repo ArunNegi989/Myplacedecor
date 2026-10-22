@@ -314,7 +314,7 @@ export default function AboutUs() {
               <Button href="/contact/" className={styles.btnLight}>
                 Get Your Consultation Today
               </Button>
-              <a href="tel:+918476898395" className={styles.btnGlass}>
+              <a href="tel:+919627264525" className={styles.btnGlass}>
                 <PhoneCall size={15} /> Talk to a Designer
               </a>
             </div>
