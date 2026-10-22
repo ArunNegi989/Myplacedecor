@@ -56,7 +56,13 @@ export default function ServiceBlocks() {
                       ))}
                     </ul>
 
-                    <EnquireButton variant="primary" label="Enquire about this" />
+                    <EnquireButton
+                      variant="ghost"
+                      size="sm"
+                      service={sv.title}
+                      label="Enquire about this"
+                      aria-label={`Enquire about ${sv.title}`}
+                    />
                   </RevealAnimation>
                 </li>
               );

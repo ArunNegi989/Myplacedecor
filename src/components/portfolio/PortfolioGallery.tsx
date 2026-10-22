@@ -1,12 +1,13 @@
 "use client";
 
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import SectionHeading from "@/components/common/SectionHeading";
 import PortfolioCard from "./PortfolioCard";
-import ImageLightbox from "./ImageLightbox";
+import ProjectGallery from "./ProjectGallery";
+import { useProjectGallery } from "@/hooks/useProjectGallery";
 import { PORTFOLIO_CATEGORIES, PORTFOLIO_ITEMS } from "@/data/portfolio";
 import s from "@/styles/components/Portfolio.module.css";
 
@@ -23,8 +24,7 @@ const COUNTS = PORTFOLIO_CATEGORIES.reduce<Record<string, number>>((acc, c) => {
 export default function PortfolioGallery() {
   const [filter, setFilter] = useState<Filter>("All");
   const [limit, setLimit] = useState(PAGE);
-  const [active, setActive] = useState<number | null>(null);
-  const triggerRef = useRef<HTMLElement | null>(null);
+  const gallery = useProjectGallery();
 
   const items = useMemo(
     () => (filter === "All" ? PORTFOLIO_ITEMS : PORTFOLIO_ITEMS.filter((i) => i.category === filter)),
@@ -37,12 +37,6 @@ export default function PortfolioGallery() {
     setLimit(PAGE);
   };
 
-  const close = useCallback(() => {
-    setActive(null);
-    // return focus to the card that opened the lightbox
-    window.setTimeout(() => triggerRef.current?.focus({ preventScroll: true }), 0);
-  }, []);
-
   return (
     <section id="gallery" className={s.gallery} aria-labelledby="gallery-title">
       <Container>
@@ -54,7 +48,7 @@ export default function PortfolioGallery() {
               Browse our work <em>by space.</em>
             </span>
           }
-          text="Tap any project to see it full screen. Use the filters to focus on the rooms you're planning."
+          text="Open any project to browse its photos full screen. Use the filters to focus on the rooms you're planning."
         />
 
         <LayoutGroup id="portfolio-filters">
@@ -101,13 +95,7 @@ export default function PortfolioGallery() {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.8, delay: (i % 3) * 0.09, ease: EASE }}
               >
-                <PortfolioCard
-                  item={item}
-                  onOpen={(el) => {
-                    triggerRef.current = el;
-                    setActive(i);
-                  }}
-                />
+                <PortfolioCard item={item} onOpen={(el) => gallery.open(item, el)} />
               </motion.li>
             ))}
           </AnimatePresence>
@@ -123,8 +111,8 @@ export default function PortfolioGallery() {
       </Container>
 
       <AnimatePresence>
-        {active !== null && (
-          <ImageLightbox items={items} index={active} onIndexChange={setActive} onClose={close} />
+        {gallery.project && (
+          <ProjectGallery key={gallery.project.id} project={gallery.project} onClose={gallery.close} />
         )}
       </AnimatePresence>
     </section>

@@ -156,12 +156,44 @@
   background: var(--gold-light);
 }
 
-.whyBtn {
+/* subtle text link: the enquiry CTA lives in the banner right below this section */
+.whyLink {
   justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--paper);
+}
+
+.whyLink span {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  transition: border-color var(--t-fast);
+}
+
+.whyLink svg {
+  transition: transform var(--t-med);
+}
+
+.whyLink:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .whyLink:hover span {
+    border-color: var(--gold-light);
+  }
+
+  .whyLink:hover svg {
+    transform: translateX(4px);
+  }
 }
 
 @media (min-width: 768px) {
-  .whyBtn {
+  .whyLink {
     grid-column: 1 / -1;
   }
 }

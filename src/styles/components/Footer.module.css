@@ -55,6 +55,38 @@
   }
 }
 
+/* ---------- logo (footer only; see FooterLogo.tsx) ---------- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--r-md);
+  transition: transform var(--t-med);
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+/* white plate (matches the current logo file's white background) so the dark artwork reads on the dark footer */
+.logoPlate {
+  padding: 10px 16px;
+  background: var(--paper);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.logoImg {
+  width: auto;
+  height: clamp(64px, 8vw, 80px);
+  object-fit: contain;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo:hover {
+    transform: translateY(-2px);
+  }
+}
+
 .brand p {
   max-width: 36ch;
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Clock, MapPin, Phone } from "lucide-react";
 import Container from "./Container";
-import Logo from "./Logo";
+import FooterLogo from "./FooterLogo";
 import SocialIcons from "./SocialIcons";
 import ScrollToTop from "./ScrollToTop";
 import RevealAnimation from "@/components/animations/RevealAnimation";
@@ -15,7 +15,7 @@ export default function Footer() {
       <Container>
         <div className={s.grid}>
           <RevealAnimation className={s.brand}>
-            <Logo light />
+            <FooterLogo />
             <p>
               Premium interior design and turnkey execution crafting spaces that reflect who you are, from concept to
               handover.

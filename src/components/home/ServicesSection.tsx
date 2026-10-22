@@ -88,7 +88,12 @@ export default function ServicesSection() {
                                     <li key={t}>{t}</li>
                                   ))}
                                 </ul>
-                                <Button size="sm" variant="primary" onClick={() => openEnquiry(sv.title)}>
+                                <Button
+                                  size="sm"
+                                  variant="ghost"
+                                  onClick={() => openEnquiry(sv.title)}
+                                  aria-label={`Enquire about ${sv.title}`}
+                                >
                                   Enquire about this
                                 </Button>
                               </div>
@@ -103,8 +108,8 @@ export default function ServicesSection() {
             </ul>
 
             <RevealAnimation delay={0.3}>
-              <Button href="/contact/" variant="ghost">
-                Get a Free Quote
+              <Button href="/services/" variant="primary">
+                Explore Services
               </Button>
             </RevealAnimation>
           </div>

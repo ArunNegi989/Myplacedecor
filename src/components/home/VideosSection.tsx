@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 import SectionHeading from "@/components/common/SectionHeading";
@@ -12,18 +12,24 @@ import { useScrollCarousel } from "@/hooks/useScrollCarousel";
 import { SITE, VIDEOS } from "@/data/content";
 import s from "@/styles/components/Videos.module.css";
 
+/** Walkthrough videos: 2 cards per view from tablets up, 1 (+ peek) on phones. */
 export default function VideosSection() {
   const { ref, canPrev, canNext, progress, scrollByCard } = useScrollCarousel<HTMLUListElement>();
   const [active, setActive] = useState<number | null>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (active === null) return;
     document.body.classList.add("no-scroll");
+    closeRef.current?.focus({ preventScroll: true });
+    const trigger = triggerRef.current;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setActive(null);
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.classList.remove("no-scroll");
       window.removeEventListener("keydown", onKey);
+      trigger?.focus({ preventScroll: true });
     };
   }, [active]);
 
@@ -45,38 +51,51 @@ export default function VideosSection() {
             </Button>
           }
         />
-      </Container>
 
-      <RevealAnimation y={40}>
-        <ul ref={ref} className={s.track} aria-label="Walkthrough videos">
-          {VIDEOS.map((v, i) => (
-            <li key={v.title} className={s.item}>
-              <button className={s.card} onClick={() => setActive(i)} aria-label={`Play ${v.title}`}>
-                <SafeImage src={v.poster} alt="" fill sizes="(min-width: 992px) 560px, 80vw" className={s.poster} />
-                <span className={s.shade} />
-                <span className={s.tag}>{v.tag}</span>
-                <span className={s.play}>
-                  <Play size={22} fill="currentColor" />
-                </span>
-                <span className={s.name}>
-                  <em>{String(i + 1).padStart(2, "0")}</em>
-                  {v.title}
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      </RevealAnimation>
+        <RevealAnimation y={40}>
+          <ul ref={ref} className={s.track} aria-label="Walkthrough videos">
+            {VIDEOS.map((v, i) => (
+              <li key={v.title} className={s.item}>
+                <button
+                  type="button"
+                  className={s.card}
+                  onClick={(e) => {
+                    triggerRef.current = e.currentTarget;
+                    setActive(i);
+                  }}
+                  aria-label={`Play ${v.title}`}
+                  aria-haspopup="dialog"
+                >
+                  <SafeImage
+                    src={v.poster}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1320px) 610px, (min-width: 600px) 46vw, 86vw"
+                    className={s.poster}
+                  />
+                  <span className={s.shade} />
+                  <span className={s.tag}>{v.tag}</span>
+                  <span className={s.play}>
+                    <Play size={22} fill="currentColor" />
+                  </span>
+                  <span className={s.name}>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
+                    {v.title}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </RevealAnimation>
 
-      <Container>
         <div className={s.nav}>
-          <button onClick={() => scrollByCard(-1)} disabled={!canPrev} aria-label="Previous videos">
+          <button type="button" onClick={() => scrollByCard(-1)} disabled={!canPrev} aria-label="Previous videos">
             <ChevronLeft size={18} />
           </button>
           <div className={s.bar} aria-hidden>
             <span style={{ width: `${Math.max(12, progress * 100)}%` }} />
           </div>
-          <button onClick={() => scrollByCard(1)} disabled={!canNext} aria-label="Next videos">
+          <button type="button" onClick={() => scrollByCard(1)} disabled={!canNext} aria-label="Next videos">
             <ChevronRight size={18} />
           </button>
         </div>
@@ -101,7 +120,7 @@ export default function VideosSection() {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
             >
-              <button className={s.close} onClick={() => setActive(null)} aria-label="Close video">
+              <button ref={closeRef} type="button" className={s.close} onClick={() => setActive(null)} aria-label="Close video">
                 <X size={20} />
               </button>
               <video src={VIDEOS[active].video} poster={VIDEOS[active].poster} controls autoPlay playsInline />

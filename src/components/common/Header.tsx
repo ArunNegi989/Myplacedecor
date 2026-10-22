@@ -5,7 +5,7 @@ import { Phone } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Logo from "./Logo";
+import HeaderLogo from "./HeaderLogo";
 import Button from "./Button";
 import { useEnquiry } from "./EnquiryProvider";
 import { NAV, SITE } from "@/data/content";
@@ -44,7 +44,7 @@ export default function Header() {
   return (
     <header className={[s.header, scrolled ? s.scrolled : ""].join(" ")}>
       <div className={s.bar}>
-        <Logo />
+        <HeaderLogo />
 
         <nav className={s.nav} aria-label="Primary">
           {NAV.map((n) => (

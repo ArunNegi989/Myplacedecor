@@ -1,8 +1,8 @@
-import { Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
+import Link from "next/link";
 import Container from "@/components/common/Container";
 import SafeImage from "@/components/common/SafeImage";
 import RevealAnimation from "@/components/animations/RevealAnimation";
-import EnquireButton from "./EnquireButton";
 import NewsletterCard from "./NewsletterCard";
 import { WHY_BG, WHY_POINTS } from "@/data/content";
 import s from "@/styles/components/Why.module.css";
@@ -36,7 +36,10 @@ export default function WhyChooseSection() {
                   ))}
                 </ul>
 
-                <EnquireButton className={s.whyBtn} />
+                <Link href="/about/#process" className={s.whyLink}>
+                  <span>See how we work</span>
+                  <ArrowRight size={16} aria-hidden />
+                </Link>
               </div>
             </div>
           </RevealAnimation>

@@ -1,0 +1,36 @@
+/*
+ * Card photo slider: slides are stacked inside the card, so the card's
+ * aspect-ratio box never changes. The incoming slide fades in on top of the
+ * outgoing one (which stays opaque underneath — no flash of background) and
+ * settles from a slight zoom; the rest reset invisibly once covered.
+ */
+.slides {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.06);
+  transition:
+    opacity 0s linear 1.4s,
+    transform 0s linear 1.4s;
+}
+
+.on {
+  z-index: 1;
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 1.4s var(--ease),
+    transform 6s var(--ease);
+}
+
+.was {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}

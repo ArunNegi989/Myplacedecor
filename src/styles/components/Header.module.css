@@ -49,6 +49,28 @@
   box-shadow: 0 14px 40px rgba(28, 27, 24, 0.14);
 }
 
+/* ---------- logo (header only; see HeaderLogo.tsx) ---------- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  height: 100%;
+  padding-block: 6px;
+  border-radius: var(--r-sm);
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.logoImg {
+  width: auto;
+  height: 100%;
+  max-height: 58px;
+  object-fit: contain;
+}
+
 /* ---------- desktop nav ---------- */
 .nav {
   display: none;

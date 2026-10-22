@@ -13,7 +13,7 @@
 
   background: var(--bg);
   color: var(--ink);
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--font-body);
   padding: 130px 0 80px;
   overflow-x: hidden;
 }
@@ -42,7 +42,7 @@
   display: inline-block;
 }
 .title {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(27px, 3.4vw, 42px);
   line-height: 1.2;
@@ -135,7 +135,7 @@
   gap: clamp(32px, 5vw, 72px);
 }
 .heroTitle {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(40px, 5.6vw, 76px);
   line-height: 1.04;
@@ -194,7 +194,7 @@
   gap: 2px;
 }
 .heroBadge strong {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-weight: 500;
   font-size: 30px;
   color: var(--green-dark);
@@ -272,7 +272,7 @@
   -webkit-backdrop-filter: blur(8px);
 }
 .expPill strong {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-size: 18px;
   font-weight: 500;
   color: var(--green-dark);
@@ -289,7 +289,7 @@
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.3);
 }
 .mottoText {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-size: 14.5px;
   line-height: 1.55;
   margin: 0 0 14px;
@@ -298,7 +298,8 @@
 }
 .signature {
   display: block;
-  font-family: "Dancing Script", cursive;
+  font-family: var(--font-display);
+  font-style: italic;
   font-size: 28px;
   line-height: 1.1;
 }
@@ -326,7 +327,7 @@
   background: linear-gradient(90deg, var(--gold), transparent);
 }
 .founderName {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(38px, 5vw, 62px);
   line-height: 1.05;
@@ -345,7 +346,7 @@
   border-radius: 20px;
   background: #fff;
   border: 1px solid var(--line);
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-size: clamp(19px, 2vw, 25px);
   line-height: 1.45;
   box-shadow: 0 14px 34px rgba(60, 50, 30, 0.06);
@@ -453,7 +454,7 @@
   margin-bottom: 8px;
 }
 .statValue {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-weight: 500;
   font-size: 24px;
   line-height: 1;
@@ -492,7 +493,7 @@
   position: absolute;
   top: 14px;
   right: 22px;
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-size: 58px;
   line-height: 1;
   color: #efeadc;
@@ -509,7 +510,7 @@
   margin-bottom: 22px;
 }
 .stepTitle {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-weight: 400;
   font-size: 21px;
   margin: 0 0 8px;
@@ -572,7 +573,7 @@
   padding: 20px 20px 24px;
 }
 .memberName {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-weight: 400;
   font-size: 21px;
   margin: 0 0 4px;
@@ -606,7 +607,7 @@
   padding: clamp(32px, 5vw, 64px);
 }
 .ctaTitle {
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(26px, 3.4vw, 42px);
   line-height: 1.2;

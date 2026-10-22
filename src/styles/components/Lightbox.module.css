@@ -26,8 +26,15 @@
   min-height: 56px;
 }
 
+.heading {
+  display: grid;
+  justify-items: start;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
 .counter {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   letter-spacing: 0.14em;
   color: rgba(255, 255, 255, 0.6);
 }
@@ -38,6 +45,7 @@
 }
 
 .close {
+  flex-shrink: 0;
   width: 48px;
   height: 48px;
   display: grid;
@@ -192,9 +200,60 @@
 .caption {
   display: grid;
   justify-items: center;
-  gap: 0.45rem;
-  padding-top: clamp(10px, 2vh, 18px);
+  gap: 0.6rem;
+  min-width: 0;
+  padding-top: clamp(8px, 1.6vh, 16px);
   text-align: center;
+}
+
+/* ---------- thumbnails (one per image of this project) ---------- */
+.thumbs {
+  display: flex;
+  gap: 8px;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 4px;
+  scrollbar-width: none;
+}
+
+.thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.thumb {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(52px, 12vw, 76px);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  opacity: 0.5;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition:
+    opacity var(--t-fast),
+    outline-color var(--t-fast);
+}
+
+.thumbImg {
+  object-fit: cover;
+}
+
+.thumbOn {
+  opacity: 1;
+  outline-color: var(--gold-light);
+}
+
+.thumb:focus-visible {
+  opacity: 1;
+  outline-color: var(--gold);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .thumb:hover {
+    opacity: 1;
+  }
 }
 
 .badge {
@@ -211,8 +270,9 @@
 .title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+  font-size: clamp(1.1rem, 2.6vw, 1.6rem);
   line-height: 1.2;
+  text-align: left;
 }
 
 .hint {
@@ -220,9 +280,20 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
+/* touch devices swipe; the keyboard hint only helps desktop users */
+@media (hover: none), (max-height: 560px) {
+  .hint {
+    display: none;
+  }
+}
+
 @media (max-width: 767px) {
   /* leave room under the image for the bottom arrows */
   .stage {
     padding-bottom: 68px;
+  }
+
+  .stageSingle {
+    padding-bottom: 6px;
   }
 }

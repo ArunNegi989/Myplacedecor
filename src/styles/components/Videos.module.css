@@ -18,17 +18,32 @@
   }
 }
 
+/*
+ * Cards per view: 1 (+ peek) on phones, exactly 2 from 600px up.
+ * Percentages resolve against the track's content box, so the pair always
+ * lines up with the container edges; on phones the track bleeds to the
+ * viewport edge so the next card peeks in as a swipe hint.
+ */
 .track {
+  --gap: clamp(12px, 2vw, 24px);
   display: flex;
-  gap: clamp(12px, 2vw, 24px);
+  gap: var(--gap);
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
-  /* align first card with container edge */
-  padding-inline: max(var(--pad-x), calc((100vw - var(--container)) / 2 + var(--pad-x)));
-  scroll-padding-inline: max(var(--pad-x), calc((100vw - var(--container)) / 2 + var(--pad-x)));
-  padding-block: 6px 10px;
+  margin-inline: calc(-1 * var(--pad-x));
+  padding: 6px var(--pad-x) 10px;
+  scroll-padding-inline: var(--pad-x);
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+
+@media (min-width: 600px) {
+  .track {
+    margin-inline: 0;
+    padding-inline: 0;
+    scroll-padding-inline: 0;
+  }
 }
 
 .track::-webkit-scrollbar {
@@ -36,8 +51,15 @@
 }
 
 .item {
-  flex: 0 0 clamp(272px, 82vw, 600px);
+  flex: 0 0 86%;
+  min-width: 0;
   scroll-snap-align: start;
+}
+
+@media (min-width: 600px) {
+  .item {
+    flex-basis: calc((100% - var(--gap)) / 2);
+  }
 }
 
 .card {

@@ -51,6 +51,20 @@ export const HERO_SLIDES = [
   { src: img(IMG.bathroom, 1400), label: "Marble Bathroom" },
 ];
 
+/**
+ * Homepage hero video. Free stock clip from Pexels: "Amazing footage of living room or TV lounge"
+ * https://www.pexels.com/video/amazing-footage-of-living-room-or-tv-lounge-17211936/
+ * Swap the URLs for your own walkthrough; the HERO_SLIDES above are the fallback when the
+ * video can't play (load error, reduced-motion or data-saver).
+ */
+export const HERO_VIDEO = {
+  /** ~1.2 MB, used from tablet width up */
+  src: "https://videos.pexels.com/video-files/17211936/17211936-hd_1280_720_30fps.mp4",
+  /** ~0.8 MB, used on phones */
+  srcMobile: "https://videos.pexels.com/video-files/17211936/17211936-sd_960_540_30fps.mp4",
+  label: "Living room walkthrough",
+};
+
 export const CATEGORIES = [
   { label: "Living Spaces", src: img(IMG.livingBright, 160) },
   { label: "Modular Kitchens", src: img(IMG.kitchen, 160) },
@@ -116,14 +130,7 @@ export const SERVICES = [
   },
 ] as const;
 
-export const PROJECTS = [
-  { title: "Modern Minimal Living Space", category: "Living", image: img(IMG.livingWarm, 900) },
-  { title: "Luxury Marble Bathroom", category: "Bathroom", image: img(IMG.bathroom, 900) },
-  { title: "Contemporary TV Lounge", category: "Living", image: img(IMG.lounge, 900) },
-  { title: "Sage & Oak Master Suite", category: "Bedroom", image: img(IMG.bedroom, 900) },
-  { title: "Handle-less Modular Kitchen", category: "Kitchen", image: img(IMG.kitchen, 900) },
-  { title: "Walk-in Wardrobe Gallery", category: "Wardrobe", image: img(IMG.wardrobe, 900) },
-];
+// Homepage projects live in ./portfolio.ts (FEATURED_PROJECTS) so both pages share one source.
 
 // Real Google reviews shown on the existing site. Update from your own data.
 export const REVIEWS = [

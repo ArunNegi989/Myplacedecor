@@ -43,14 +43,22 @@
   pointer-events: none;
 }
 
+/*
+ * Cards per view: 1 (+ peek) on phones, 2 on tablets, exactly 3 from 992px.
+ * Percentages resolve against the track's content box, so the cards always
+ * line up with the container edges. On narrow screens the track bleeds to the
+ * viewport edge so the next card peeks in as a swipe hint.
+ */
 .track {
+  --gap: clamp(14px, 2vw, 24px);
   display: flex;
-  gap: clamp(12px, 2vw, 24px);
+  gap: var(--gap);
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
-  padding-inline: max(var(--pad-x), calc((100vw - var(--container)) / 2 + var(--pad-x)));
-  scroll-padding-inline: max(var(--pad-x), calc((100vw - var(--container)) / 2 + var(--pad-x)));
-  padding-block: 8px 24px;
+  margin-inline: calc(-1 * var(--pad-x));
+  padding: 8px var(--pad-x) 28px;
+  scroll-padding-inline: var(--pad-x);
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -60,35 +68,60 @@
 }
 
 .item {
-  flex: 0 0 clamp(260px, 78vw, 400px);
+  flex: 0 0 84%;
+  min-width: 0;
   scroll-snap-align: start;
 }
 
-.reveal {
-  height: 100%;
+@media (min-width: 640px) {
+  .item {
+    flex-basis: calc((100% - var(--gap)) / 2);
+  }
+}
+
+@media (min-width: 992px) {
+  .track {
+    margin-inline: 0;
+    padding-inline: 0;
+    scroll-padding-inline: 0;
+  }
+
+  .item {
+    flex-basis: calc((100% - 2 * var(--gap)) / 3);
+  }
 }
 
 .card {
   position: relative;
+  display: block;
+  width: 100%;
   overflow: hidden;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   border-radius: var(--r-lg);
+  text-align: left;
   color: var(--paper);
   background: var(--sand);
+  box-shadow: var(--shadow-sm);
   isolation: isolate;
+  cursor: zoom-in;
   transition:
     transform var(--t-med),
     box-shadow var(--t-med);
 }
 
+.card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
   }
 
   .card:hover .img {
-    transform: scale(1.1);
+    transform: scale(1.06);
   }
 
   .card:hover .overlay {
@@ -164,18 +197,39 @@
 .info {
   position: absolute;
   z-index: 2;
-  left: 22px;
-  right: 22px;
-  bottom: 22px;
+  left: clamp(18px, 2vw, 24px);
+  right: clamp(18px, 2vw, 24px);
+  bottom: clamp(18px, 2vw, 24px);
   display: grid;
-  gap: 0.7rem;
-  justify-items: start;
+  gap: 0.6rem;
 }
 
-.info h3 {
+.name {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   line-height: 1.2;
+  text-wrap: balance;
+  /* keep every card the same rhythm, even with long titles */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .link {
@@ -186,11 +240,6 @@
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--paper);
-}
-
-.link:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
 }
 
 .link span {
@@ -217,5 +266,5 @@
 .foot {
   display: flex;
   justify-content: center;
-  margin-top: clamp(8px, 2vw, 20px);
+  margin-top: clamp(4px, 1.5vw, 16px);
 }

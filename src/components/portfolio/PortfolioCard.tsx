@@ -1,5 +1,5 @@
-import { ArrowRight, Expand } from "lucide-react";
-import SafeImage from "@/components/common/SafeImage";
+import { ArrowRight, Images } from "lucide-react";
+import CardImageSlider from "./CardImageSlider";
 import type { PortfolioItem } from "@/data/portfolio";
 import s from "@/styles/components/Portfolio.module.css";
 
@@ -9,25 +9,27 @@ type Props = {
 };
 
 export default function PortfolioCard({ item, onOpen }: Props) {
+  const count = item.images.length;
+  const photos = `${count} ${count === 1 ? "photo" : "photos"}`;
+
   return (
     <button
       type="button"
       className={s.card}
       onClick={(e) => onOpen(e.currentTarget)}
-      aria-label={`Open ${item.title} (${item.category}) in full screen`}
+      aria-label={`View project: ${item.title} (${item.category}, ${photos})`}
       aria-haspopup="dialog"
     >
-      <SafeImage
-        src={item.thumb}
-        alt={item.alt}
-        fill
+      <CardImageSlider
+        images={item.images}
         sizes="(min-width: 1320px) 410px, (min-width: 992px) 31vw, (min-width: 576px) 46vw, 92vw"
-        className={s.cardImg}
+        imgClassName={s.cardImg}
       />
       <span className={s.cardShade} aria-hidden />
       <span className={s.badge}>{item.category}</span>
       <span className={s.expand} aria-hidden>
-        <Expand size={16} />
+        <Images size={15} />
+        {count > 1 && <span className={s.expandCount}>{count}</span>}
       </span>
       <span className={s.cardInfo}>
         <span className={s.cardTitle}>{item.title}</span>

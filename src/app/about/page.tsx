@@ -1,7 +1,4 @@
-import Link from "next/link";
 import {
-  ArrowRight,
-  ArrowUpRight,
   Home,
   Users,
   Clock,
@@ -101,7 +98,7 @@ const team = [
 /* ───────────── COMPONENT ───────────── */
 export default function AboutUs() {
   return (
-    <main className={styles.page}>
+    <div className={styles.page}>
       {/* ═══════ 1. HERO ═══════ */}
       <section className={`${styles.container} ${styles.hero}`}>
         <div className={styles.heroText}>
@@ -118,8 +115,8 @@ export default function AboutUs() {
             handover.
           </p>
           <div className={styles.heroBtns}>
-            <Button href="/contact" className={styles.btnPrimary}>
-              Start Your Project 
+            <Button href="/contact/" className={styles.btnPrimary}>
+              Start Your Project
             </Button>
             <Button href="#founder" className={styles.btnOutline}>
               Meet the Founder
@@ -200,13 +197,9 @@ export default function AboutUs() {
             </ul>
 
             <div className={styles.founderFoot}>
-              <Button href="#who-we-are" className={styles.btnPrimary}>
+              <Button href="#who-we-are" variant="ghost" className={styles.btnOutline}>
                 Our Journey
               </Button>
-               <Button href="/contact"className={styles.btnOutline}> Talk to Prince</Button>
-             
-             
-             
             </div>
           </div>
         </div>
@@ -247,8 +240,8 @@ export default function AboutUs() {
             ))}
           </div>
 
-          <Button href="/contact" className={styles.btnPrimary}>
-            Get in Touch 
+          <Button href="/portfolio/" variant="ghost" className={styles.btnOutline}>
+            View Our Work
           </Button>
         </div>
       </section>
@@ -318,8 +311,8 @@ export default function AboutUs() {
               into something extraordinary.
             </p>
             <div className={styles.ctaBtns}>
-              <Button href="/contact" className={styles.btnLight}>
-                Get Your Consultation Today 
+              <Button href="/contact/" className={styles.btnLight}>
+                Get Your Consultation Today
               </Button>
               <a href="tel:+918476898395" className={styles.btnGlass}>
                 <PhoneCall size={15} /> Talk to a Designer
@@ -331,6 +324,6 @@ export default function AboutUs() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
